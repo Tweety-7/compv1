@@ -1,6 +1,26 @@
 x^2 - x + 2 = 0 D = 0
 x^2.0 - 4x + 4 = 0
+Reduced form: 1X^2 + -4X^1 + 4X^0 = 0
+Polynomial degree:  0
+solution is  2.0
+
+
+
 
 x^2 - x + 2 = 0  D<0
+Reduced form: 1X^2 + -1X^1 + 2X^0 = 0
+Polynomial degree:  0
+Discriminant is strictly negative, the two irrational solution are:
+1/2 + (√-7 / 2) *i
+1/2 - (√-7 / 2) *i
 
 
+6x^2 + x - 1 = 0 D >0
+
+
+(venv) arina@Tweety:~/Desktop/pythonProject/compv1$ python comp.py x^2 - x - 12 = 0
+Reduced form: 1X^2 + -1X^1 + -12X^0 = 0
+Polynomial degree:  0
+Discriminant is strictly positiv, the two solution are:
+4
+-3
