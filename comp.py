@@ -33,7 +33,8 @@ def equat(S):
             print('all the real numbers are solution')
             sys.exit(0)
         elif S.b == 0:
-            print('c !0 в этой вселенной => Уравнение не имеет решений')
+            print(f'{S.c} !0 в этой вселенной => Уравнение не имеет решений')
+            sys.exit(0)
         elif S.c == 0:
             print("c == a == 0: solution is ", 0)
             sys.exit(0)
