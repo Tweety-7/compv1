@@ -2,7 +2,6 @@
 class Start:
     def __init__(self):
         # Manage inputs outputs in a natural form.
-
         # Display the solution(s) under the form of irrational fractions when it is interesting..
         self.flag_v = False # Manage errors on the input (lexicon and syntax)
         self.flag_s = False # Display intermediate steps. = Отображение промежуточных шагов

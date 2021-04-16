@@ -55,10 +55,8 @@ def equat(S):
                 x_2 = -sqrt(d)
                 print("the two solution are:",x_1,x_2)
             else:#мнимое
-                ninus_d = sqrt(-d)
-                c_na_a = S.c/S.a
-
-                print(f"two irrational solution are: i*\u221A({c_na_a}), -i*\u221A({c_na_a})")
+                # ninus_d = sqrt(-d)
+                print(f"two irrational solution are: i*\u221A({d}), -i*\u221A({d})")
         elif S.c == 0 and S.b == 0:
                     print("c == b == 0: solution is ", 0)
         else: # S.c == 0 and S.b != 0
@@ -81,18 +79,18 @@ def equat(S):
                 print('комплексные корни, D < 0')
             D_minus = sqrt(-D)
             alpha = -S.b/(2*S.a)
-            if alpha % 1 == 0:
-                alpha = int(alpha)
-            else:
-               alpha = (f'{-S.b}/{2*S.a}')
+            # if alpha % 1 == 0:
+            #     alpha = int(alpha)
+            # else:
+            #    alpha = (f'{-S.b}/{2*S.a}')
             betta = D_minus/(2*S.a)
             if betta % 1 ==0:
-                betta = int(betta)
-            else:
+            #     betta = int(betta)
+            # else:
                 # if S.flag_s:
                 #     print(f'D = {D}')
                 D = int(D)
-                betta = (f'\u221A{D} / {2 * S.a}')
+                # betta = (f'\u221A{D} / {2 * S.a}')
             print("Discriminant is strictly negative, the two irrational solution are: ")
             print(f"{alpha} + ({betta}) *i")
             print(f"{alpha} - ({betta}) *i")
