@@ -57,6 +57,7 @@ def parse_arg(arg, S):
     flag_minus_2 = 0 # минус инт2
     flag_mul = 0 # умножение = pass
     flag_point = 0 # вещественное число
+    flag_plus = 0
     lenp = len(arg)
     for i in range(len(arg)):
         if arg[i] == '-':
@@ -147,7 +148,13 @@ def parse_arg(arg, S):
                     print("Для возведения степень используйте ^, ** - не распознаваемый символ")
                 return 1
             flag_mul = 1
-        elif (arg[i] == '+') or (arg[i] == ' '):
+        elif (arg[i] == '+'):
+            if flag_plus:
+                if S.flag_s or S.flag_v:
+                    print("похоже лишний + в arg = ",arg)
+                return 1
+            flag_plus = 1
+        elif (arg[i] == ' '):
             return 0
         else:
             print(arg)
