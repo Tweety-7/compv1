@@ -150,6 +150,7 @@ def parse_arg(arg, S):
         elif (arg[i] == '+') or (arg[i] == ' '):
             return 0
         else:
+            print(arg)
             print("символ не допустим для получения всех опций: comp_v1.py -h")
     # разберемся с полученными числами
     if int_2 and not int_2_flag:
@@ -178,6 +179,7 @@ def parse_arg(arg, S):
             int_2 = - int(int_2)
             if S.flag_v:
                 print("Отрицательная степень не допустима заданием =(, флаг -h для просмотра всех опций")
+            # return 1
             # return 0
         # elif S.right:
         #     print("Знак = в недопустимом месте")
@@ -194,7 +196,7 @@ def parse_arg(arg, S):
     # теперь все возможные ситуации:
     if flag_x: # переменная есть
         # в зависимости от того какая степень:
-        if int_2 != 1 and int_2 != 0 and (int_2.isdigit() or ('.' in int_2 and int_2.replace('.','').isdigit())):
+        if  type(int_2) != type(7) and (int_2.isdigit() or ('.' in int_2 and int_2.replace('.','').isdigit())):
             int_2 = float(int_2)
             if int_2 % 1 == 0:
                 int_2 = int(int_2)
@@ -224,6 +226,7 @@ def parse_arg(arg, S):
             return 1
         S.other_dict[int_2] = 0
     int_2 = int(int_2)
+    # print(int_1, int_2, S.other_dict[int_2])
     S.other_dict[int_2] = int(S.other_dict[int_2]) + int_1
     if S.flag_v and (2 < int_2 < 0):
             print(f"степень {int_2} не доступна по заданию")

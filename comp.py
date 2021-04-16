@@ -4,7 +4,6 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 import sys
-import math
 from comp_v1 import *
 # sys.stderr - сообщения об ошибках и собственные запросы переводчика.
 # я ошибок синтаксиса командной строки и 1 для всех других видов ошибок.
@@ -12,6 +11,7 @@ from comp_v1 import *
 # нуля, а любой другой объект выводится на sys.stderr и приводит к коду
 # zвыхода 1. В частности, sys.exit() - это быстрый способ выйти из программы при возникновении ошибки.
 #  0 == успешное завершение
+
 
 
 def print_help():
@@ -46,15 +46,19 @@ def equat(S):
             # sys.exit(0)
             return 0
     if S.b == 0 or S.c == 0:
-        print("неполное квадратное уравнение")
+        if S.flag_v or S.flag_s:
+            print("неполное квадратное уравнение")
         if S.b == 0 and S.c != 0:
             d = -S.c/S.a
             if d >0: # два корня
                 x_1 = sqrt(d)
                 x_2 = -sqrt(d)
                 print("the two solution are:",x_1,x_2)
-            # else:
-                #мнимое
+            else:#мнимое
+                ninus_d = sqrt(-d)
+                c_na_a = S.c/S.a
+
+                print(f"two irrational solution are: i*\u221A({c_na_a}), -i*\u221A({c_na_a})")
         elif S.c == 0 and S.b == 0:
                     print("c == b == 0: solution is ", 0)
         else: # S.c == 0 and S.b != 0
@@ -95,7 +99,7 @@ def equat(S):
             # sys.exit(0)
             return 0
 
-        else:
+        else: # D > 0
             if S.flag_s:
                 print('2 комплексныx корня')
             X_1 = (- S.b + sqrt(D))/(2*S.a)
@@ -143,12 +147,12 @@ def main_m():
         str_arg = args[1]
         if ('*' in str_arg):
             str_arg = str_arg.replace(' * ', '')
-            args = str_arg.split(' ')
+        args = str_arg.split(' ')
     else:# каждый параметр = аргумент
             args.remove(args[0])
     # args = ["-sv",'-v','x^2.0', "-", "4x", "-", "-4", "=", "0"]
 
-    # print(args)
+    print(args)
     ia = 0
     for arg_i in  args: # slide:  ['-4x', '=','-X^2', '+', '-4'] - 1 корень
             parse = parse_arg(arg_i, S)
